@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { FiLogIn } from 'react-icons/fi';
-import api from '../../services/api';
+import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { FiLogIn } from 'react-icons/fi'
+import Swal from 'sweetalert2'
+import api from '../../services/api'
 
-import './styles.css';
-import logoImg from '../../assets/logo.svg';
-import herosImg from '../../assets/heroes.png';
+import './styles.css'
+import logoImg from '../../assets/logo.svg'
+import herosImg from '../../assets/heroes.png'
 
 function Logon() {
-    const [id, setId] = useState('');
+    const [id, setId] = useState('')
 
     const history = useHistory();
 
@@ -23,7 +24,8 @@ function Logon() {
 
             history.push('/profile');
         } catch (err) {
-            alert('Falha no Login, tente novamente!');
+            Swal.fire('Oops...','Falha no Login, tente novamente!', 'error')
+            //.alert();
         }
     }
 
